@@ -1,12 +1,11 @@
 import "./App.css";
-// import { useState, useEffect } from 'react';
 import { data } from "./users";
 import "./styles.css";
 import { useState } from "react";
-import ItemModal from "./Modal";
+import ItemModal from "./ItemModal";
 
 function App() {
-  const [model, showModel] = useState(false);
+  const [showModel, setShowModel] = useState(false);
   const [modelData, setModelData] = useState();
 
   // const handleToggle = (item) => {
@@ -47,9 +46,8 @@ function App() {
                 <button
                   className="button-default"
                   onClick={() => {
-                    showModel(true);
+                    setShowModel(true);
                     setModelData(item);
-                    // handleToggle(item);
                   }}
                 >
                   Show Modal
@@ -58,10 +56,10 @@ function App() {
             </div>
           </div>
         ))}
-        {model && (
+        {showModel && (
           <ItemModal
-            show={model}
-            onHide={() => showModel(false)}
+            show={showModel}
+            onHide={() => setShowModel(false)}
             item={modelData}
           />
         )}
