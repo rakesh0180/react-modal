@@ -54,17 +54,17 @@ function App() {
                 >
                   Show Modal
                 </button>
-                {modelData && (
-                  <ItemModal
-                    show={model}
-                    onHide={() => showModel(false)}
-                    item={modelData}
-                  />
-                )}
               </div>
             </div>
           </div>
         ))}
+        {model && (
+          <ItemModal
+            show={model}
+            onHide={() => showModel(false)}
+            item={modelData}
+          />
+        )}
       </div>
     </div>
   );
