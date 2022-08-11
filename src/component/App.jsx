@@ -44,7 +44,7 @@ function App() {
                     }}
                   />
                   {item?.id === modalData?.id && (
-                    <button
+                    <span
                       className="button-default btn-hover"
                       onMouseOver={() => {
                         setShowModel(true);
@@ -52,7 +52,7 @@ function App() {
                       }}
                     >
                       learn more
-                    </button>
+                    </span>
                   )}
                 </div>
                 <div className="card-dec">

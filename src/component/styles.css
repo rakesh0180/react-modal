@@ -57,11 +57,16 @@ body {
   top: 30%;
   left: 40%;
   border: none;
-  background-color: thistle;
+  color:#fff;
+  opacity: 1;
+  font:16px 600 lato;
+  /* background-color: thistle; */
 }
-.close{
-  color: #38465d;
-  padding: .25rem 0.4rem;
+.close {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: red;
   height: 25px;
   width: 25px;
   border-radius: 50%;
@@ -71,8 +76,12 @@ body {
   margin: 0%;
 }
 
-.close:hover{
+.close:hover {
   cursor: pointer;
+}
+.profile{
+  border-radius: 25px;
+
 }
 /* .App {
     font-family: lato;
