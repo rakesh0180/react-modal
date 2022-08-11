@@ -46,28 +46,10 @@ const ItemModal = ({ item, show, onHide }) => {
                     />
                   </span>
                   <span className="author">
-                    {item.author.name} - {item.author.role}
+                    {item?.author?.name} - {item?.author?.role}
                   </span>
-                  {/* <span className="date">{item.date}</span> */}
                 </div>
               </div>
-              {/* <div className="col-md-12">
-                <div className="row">
-                  <div className=" col-md-3 images">
-                    <img
-                      src={item?.author?.avatar}
-                      className="card-img-top"
-                      alt="img"
-                      width={30}
-                      height={30}
-                    />
-                  </div>
-                  <div className="col-md-9">
-                    <span>{item?.author?.name}</span>
-                    <span>{item?.author?.role}</span>
-                  </div>
-                </div>
-              </div> */}
             </div>
           </div>
         </ModalBody>

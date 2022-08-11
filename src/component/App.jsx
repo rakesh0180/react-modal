@@ -3,10 +3,13 @@ import { data } from "./users";
 import "./styles.css";
 import { useState } from "react";
 import ItemModal from "./ItemModal";
+import { Image } from "react-bootstrap";
 
 function App() {
   const [showModel, setShowModel] = useState(false);
-  const [modelData, setModelData] = useState();
+  const [modalData, setModalData] = useState();
+  const [isHovered, setHovered] = useState(false);
+  const [selectItem, setselectItem] = useState();
 
   // const handleToggle = (item) => {
   //   console.log(item);
@@ -14,6 +17,9 @@ function App() {
   //   alert(`hi ${item.id}`);
   //   showModel(!model);
   // };
+
+  const showButton = () => {};
+  const hideButton = () => {};
   return (
     <div className="container">
       <div className="row">
@@ -21,14 +27,33 @@ function App() {
           <div className="col-md-6" key={item.id}>
             <div className="card">
               <div className="card-body">
-                <div className="images">
+                <div className="images image-container ">
                   <img
                     src={item.thumbnail.large}
                     className="card-img-top"
-                    alt="img"
+                    alt={item.title}
                     width={700}
                     height={300}
+                    onMouseOver={() => {
+                      setHovered(true);
+                      setModalData(item);
+                    }}
+                    onMouseOut={() => {
+                      setHovered(false);
+                      setModalData();
+                    }}
                   />
+                  {item?.id === modalData?.id && (
+                    <button
+                      className="button-default btn-hover"
+                      onMouseOver={() => {
+                        setShowModel(true);
+                        setModalData(item);
+                      }}
+                    >
+                      learn more
+                    </button>
+                  )}
                 </div>
                 <div className="card-dec">
                   <h3 className="card-title">{item.title}</h3>
@@ -43,15 +68,6 @@ function App() {
                   </span>
                   <span className="date">{item.date}</span>
                 </div>
-                <button
-                  className="button-default"
-                  onClick={() => {
-                    setShowModel(true);
-                    setModelData(item);
-                  }}
-                >
-                  Show Modal
-                </button>
               </div>
             </div>
           </div>
@@ -60,7 +76,7 @@ function App() {
           <ItemModal
             show={showModel}
             onHide={() => setShowModel(false)}
-            item={modelData}
+            item={modalData}
           />
         )}
       </div>
